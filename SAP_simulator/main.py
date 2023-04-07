@@ -14,6 +14,8 @@ class Game:
 
         self.players = []
 
+        self.matches = 0
+
         for i in range(num_players):
             player = Player()
             self.players.append(player)
@@ -110,6 +112,8 @@ class Game:
             winner.trophies += 1
             loser.hearts -= 1
 
+            self.matches += 1
+
 
 
     def simulateGroup(self, group):
@@ -133,6 +137,8 @@ class Game:
 
             winner.trophies += 1
             loser.hearts -= 1
+
+            self.matches += 1
         
         return(returner)
 
@@ -157,6 +163,19 @@ class Game:
 
         print("Victors: " + str(len(self.victors)) + "\n")
         print("\n\nLosers: " + str(len(self.losers)) + "\n")
+
+        print("Matches played:", self.matches)
+
+        print("Lost with 0 trophies:", len(list(filter(lambda player: player.trophies == 0, self.losers))))
+        print("Lost with 1 trophies:", len(list(filter(lambda player: player.trophies == 1, self.losers))))
+        print("Lost with 2 trophies:", len(list(filter(lambda player: player.trophies == 2, self.losers))))
+        print("Lost with 3 trophies:", len(list(filter(lambda player: player.trophies == 3, self.losers))))
+        print("Lost with 4 trophies:", len(list(filter(lambda player: player.trophies == 4, self.losers))))
+        print("Lost with 5 trophies:", len(list(filter(lambda player: player.trophies == 5, self.losers))))
+        print("Lost with 6 trophies:", len(list(filter(lambda player: player.trophies == 6, self.losers))))
+        print("Lost with 7 trophies:", len(list(filter(lambda player: player.trophies == 7, self.losers))))
+        print("Lost with 8 trophies:", len(list(filter(lambda player: player.trophies == 8, self.losers))))
+        print("Lost with 9 trophies:", len(list(filter(lambda player: player.trophies == 9, self.losers))))
 
         print("Remaining Players (always 0 or 1): ", self.players)
         
